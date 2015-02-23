@@ -191,7 +191,7 @@
 
 (defun ikku/parse (text)
   (with-temp-buffer
-    (let ((command (format "echo %s | mecab --node-format='%%m\\t%%s\\t%%H\\n'" (shell-quote-argument text)))
+    (let ((command (format "echo %s | mecab --node-format='%%m\\t%%s\\t%%H\\n' --eos-format='EOS\\t%%s\\t%%H\\n'" (shell-quote-argument text)))
           (position 0)
           node)
       (unless (zerop (call-process-shell-command command nil t))
