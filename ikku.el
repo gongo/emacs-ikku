@@ -28,7 +28,6 @@
 ;; OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 ;; WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-(require 's)
 (require 'dash)
 (require 'cl-lib)
 
@@ -36,7 +35,7 @@
                (:constructor new-ikku:node
                              (surface stat position features &aux
                                       (stat     (string-to-number stat))
-                                      (features (s-split "," features))
+                                      (features (split-string features ","))
                                       (type          (nth 0 features))
                                       (subtype1      (nth 1 features))
                                       (subtype2      (nth 2 features))

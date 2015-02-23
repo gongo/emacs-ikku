@@ -7,7 +7,6 @@ Requirements
 --------------------
 
 - Emacs 24
-- [s.el](https://github.com/magnars/s.el)
 - [dash.el](https://github.com/magnars/dash.el)
 - [MeCab](http://mecab.googlecode.com/svn/trunk/mecab/doc/index.html) with IPADIC (e.g. `brew install mecab mecab-ipadic`)
 
