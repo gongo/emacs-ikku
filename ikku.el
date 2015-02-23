@@ -102,6 +102,12 @@
          nil)
         ((eq (ikku:node-conjugation2 node) "連用タ接続")
          nil)
+        ((and (eq (ikku:node-conjugation1 node) "サ変・スル")
+              (eq (ikku:node-conjugation2 node) "連用形"))
+         nil)
+        ((and (eq (ikku:node-type node) "動詞")
+              (eq (ikku:node-conjugation1 node) "仮定形"))
+         nil)
         (t t)))
 
 (defun ikku:node--pronunciation-length (node)
