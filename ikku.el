@@ -1,11 +1,11 @@
-;;; emacs-ikku.el --- Discover haiku from text
+;;; ikku.el --- Discover haiku from text
 
 ;; Author: Wataru MIYAGUNI <gonngo@gmail.com>
 ;; URL: https://github.com/gongo/emacs-ikku
 ;; Version: 0.0.1
 ;; Keywords: haiku ikku text
 
-;; Copyright (c) 2012 Wataru MIYAGUNI
+;; Copyright (c) 2015 Wataru MIYAGUNI
 ;;
 ;; MIT License
 ;;
@@ -220,7 +220,7 @@
 
 (defun ikku/find (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))
-  (ikku/find--nodes-to-song ((ikku/parse text) rule)))
+  (ikku/find--nodes-to-song (ikku/parse text) rule))
 
 (defun ikku/search (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))

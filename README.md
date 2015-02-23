@@ -3,6 +3,8 @@ emacs-ikku
 
 Discover haiku from text.
 
+![](ikku.png)
+
 Requirements
 --------------------
 
