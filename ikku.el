@@ -68,6 +68,12 @@
   rule
   current-count)
 
+(defun ikku:node--normal-p (node)
+  (eq (ikku:node-stat node) 0))
+
+(defun ikku:node--eos-p (node)
+  (eq (ikku:node-stat node) 3))
+
 (defun ikku:node--first-of-phrase-p (node)
   (cond ((-contains-p '("助詞" "助動詞") (ikku:node-type node))
          nil)
@@ -109,7 +115,7 @@
         (pronunciation-length (ikku:node--pronunciation-length node)))
     (cond ((> pronunciation-length max-consumable-length)
            nil)
-          ((not (eq (ikku:node-stat node) 0))
+          ((not (ikku:node--normal-p node))
            nil)
           ((and (ikku:scanner--first-of-phrase-p scanner)
                 (not (ikku:node--first-of-phrase-p node)))
