@@ -106,7 +106,7 @@
               (string= (ikku:node-conjugation2 node) "連用形"))
          nil)
         ((and (string= (ikku:node-type node) "動詞")
-              (string= (ikku:node-conjugation1 node) "仮定形"))
+              (-contains-p '("仮定形" "未然形") (ikku:node-conjugation2 node)))
          nil)
         (t t)))
 
