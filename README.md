@@ -2,6 +2,7 @@ emacs-ikku
 ====================
 
 [![Build Status](https://travis-ci.org/gongo/emacs-ikku.svg?branch=master)](https://travis-ci.org/gongo/emacs-ikku)
+[![Coverage Status](https://coveralls.io/repos/gongo/emacs-ikku/badge.svg)](https://coveralls.io/r/gongo/emacs-ikku)
 
 Discover haiku from text.
 
