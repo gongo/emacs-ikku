@@ -108,6 +108,10 @@
         ((and (string= (ikku:node-type node) "動詞")
               (-contains-p '("仮定形" "未然形") (ikku:node-conjugation2 node)))
          nil)
+        ((and (string= (ikku:node-type node) "名詞")
+              (string= (ikku:node-subtype1 node) "非自立")
+              (string= (ikku:node-pronunciation node) "ン"))
+         nil)
         (t t)))
 
 (defun ikku:node--pronunciation-length (node)
