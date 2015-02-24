@@ -1,6 +1,8 @@
 emacs-ikku
 ====================
 
+[![Build Status](https://travis-ci.org/gongo/emacs-ikku.svg?branch=master)](https://travis-ci.org/gongo/emacs-ikku)
+
 Discover haiku from text.
 
 ![](ikku.png)
