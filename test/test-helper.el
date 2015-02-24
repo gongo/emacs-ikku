@@ -1,4 +1,5 @@
 (require 'ert)
-;; (require 'undercover)
-;; (undercover "json-reformat.el")
+(require 'undercover)
+(undercover "ikku.el")
+
 (require 'ikku)
