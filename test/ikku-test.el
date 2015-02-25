@@ -18,3 +18,11 @@
                  )))
     (dolist (text texts)
       (should-not (ikku:song-p (ikku/find text))))))
+
+(ert-deftest ikku/judge--with-invalid-song ()
+  (let ((texts '(
+                 "ああ古池や蛙飛び込む水の音ああ"
+                 "、古池や蛙飛び込む水の音"       ;; Phrase starting with symbol
+                 )))
+    (dolist (text texts)
+      (should-not (ikku/judge text)))))

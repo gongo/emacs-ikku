@@ -218,18 +218,20 @@
   (let ((scanner (make-ikku:scanner :nodes nodes :rule rule :current-count 0)))
     (ikku:scanner--scan scanner)))
 
-(defun ikku/find--nodes-to-song (nodes rule)
-  (let (phrases song)
-    (while (and nodes (null song))
-      (setq phrases (ikku/scan nodes rule))
-      (when phrases
-        (setq song (make-ikku:song :phrases phrases :rule rule)))
-      (setq nodes (cdr nodes)))
-    song))
+(defun ikku/find--nodes-to-song (nodes rule &optional exactly)
+  (cl-loop for n on nodes with phrases = nil
+           do (setq phrases (ikku/scan n rule))
+           until (or phrases exactly)
+           finally return (when phrases
+                            (make-ikku:song :phrases phrases :rule rule))))
 
 (defun ikku/find (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))
   (ikku/find--nodes-to-song (ikku/parse text) rule))
+
+(defun ikku/judge (text &optional rule)
+  (when (not rule) (setq rule '(5 7 5)))
+  (ikku:song-p (ikku/find--nodes-to-song (ikku/parse text) rule t)))
 
 (defun ikku/search (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))
