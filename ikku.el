@@ -235,15 +235,8 @@
 
 (defun ikku/search (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))
-  (let ((nodes (ikku/parse text))
-        (songs '())
-        phrases)
-    (while (and nodes)
-      (setq phrases (ikku/scan nodes rule))
-      (when phrases
-        (setq songs
-              (-snoc songs (make-ikku:song :phrases phrases :rule rule))))
-      (setq nodes (cdr nodes)))
-    songs))
+  (cl-loop for n on (ikku/parse text) with phrases = nil
+           do (setq phrases (ikku/scan n rule))
+           when phrases collect (make-ikku:song :phrases phrases :rule rule)))
 
 (provide 'ikku)
