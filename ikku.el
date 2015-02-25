@@ -221,9 +221,8 @@
 (defun ikku/find--nodes-to-song (nodes rule &optional exactly)
   (cl-loop for n on nodes with phrases = nil
            do (setq phrases (ikku/scan n rule))
-           until (or phrases exactly)
-           finally return (when phrases
-                            (make-ikku:song :phrases phrases :rule rule))))
+           when phrases return (make-ikku:song :phrases phrases :rule rule)
+           when exactly return nil))
 
 (defun ikku/find (text &optional rule)
   (when (not rule) (setq rule '(5 7 5)))
