@@ -26,3 +26,17 @@
                  )))
     (dolist (text texts)
       (should-not (ikku/judge text)))))
+
+
+(ert-deftest ikku/search ()
+  (let (songs)
+    (setq songs (ikku/search "ああ古池や蛙飛び込む水の音ああ"))
+
+    (should (listp songs))
+    (should (eq 1 (length songs)))
+
+    (setq songs (ikku/search "ああ古池や蛙飛び込む水の音ああ天秤や京江戸かけて千代の春ああ"))
+    (should (eq 2 (length songs)))
+
+    (setq songs (ikku/search "test"))
+    (should (eq 0 (length songs)))))
