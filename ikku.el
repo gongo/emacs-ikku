@@ -208,9 +208,9 @@
       (goto-char (point-min))
 
       (cl-loop while (re-search-forward "^\\([^\t]+\\)\t\\([0-9]\\)\t\\(.+\\)$" nil t)
-               collect (prog1
-                           (setq node (new-ikku:node (match-string 1) (match-string 2) position (match-string 3)))
-                         (setq position (+ position (length (ikku:node-surface node)))))))))
+               do (setq node (new-ikku:node (match-string 1) (match-string 2) position (match-string 3)))
+               do (setq position (+ position (length (ikku:node-surface node))))
+               collect node))))
 
 (defun ikku/scan (nodes rule)
   (let ((scanner (make-ikku:scanner :nodes nodes :rule rule :current-count 0)))
