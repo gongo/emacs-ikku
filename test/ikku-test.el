@@ -8,10 +8,13 @@
 (ert-deftest ikku/find--with-invalid-song ()
   (let ((texts '(
                  "test"
-                 "リビングでコーヒー飲んでだめになってる" ;; Ending with 連用タ接続 (だめになっ$)
-                 "その人に金をあげたい人がいれば"         ;; Ending with 仮定形 (いれ$)
-                 "学会に多分ネイティブほとんどいない"     ;; Ending with 未然形 (ほとんどい$)
-                 "古池や蛙飛び込むかかったんだ"           ;; Ending with ん as 非自立名詞 (かかったん$)
+                 "リビングでコーヒー飲んでだめになってる" ;; Song ending with 連用タ接続 (だめになっ$)
+                 "その人に金をあげたい人がいれば"         ;; Song ending with 仮定形 (いれ$)
+                 "学会に多分ネイティブほとんどいない"     ;; Song ending with 未然形 (ほとんどい$)
+                 "古池や蛙飛び込むかかったんだ"           ;; Song ending with ん as 非自立名詞 (かかったん$)
+                 "新宿の桜と庭の写真撮っ"                 ;; Song ending with 連用タ接続 (撮っ$)
+                 "炊きつけて画面眺めて満足し"             ;; Song ending with サ変・スル in 連用形 (-し$)
+                 "レバーのお汁飲んだので元気出た"         ;; Phrase ending with 接頭詞
                  )))
     (dolist (text texts)
       (should-not (ikku:song-p (ikku/find text))))))
