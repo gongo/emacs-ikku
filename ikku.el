@@ -62,8 +62,7 @@
   phrases
   rule)
 
-(cl-defstruct (ikku:scanner
-               (:constructor))
+(cl-defstruct ikku:scanner
   nodes
   rule
   current-count)
